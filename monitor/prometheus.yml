@@ -5,8 +5,13 @@ global: # 全局变量
 rule_files: # 报警规则文件
 
 scrape_configs:
-    - job_name: 'prometheus'
-      static_configs:
-          - targets: ['192.168.56.100:9100']
+    - job_name: 'nginx_demo'
+      #static_configs:  # 静态配置
+          #- targets: ['192.168.56.100:9100']
+
+      file_sd_configs:  # 动态配置
+        - files:
+          - /etc/prometheus/nginx.yml
+          refresh_interval: 1m
       metrics_path: "/metrics" # 默认数据采集路径
 

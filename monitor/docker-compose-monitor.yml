@@ -10,7 +10,8 @@ services:
         container_name: prometheus
         restart: always
         volumes:
-            - /root/monitor/prometheus.yml:/etc/prometheus/prometheus.yml
+            - ./prometheus.yml:/etc/prometheus/prometheus.yml
+            - ./nginx.yml:/etc/prometheus/nginx.yml
         ports:
             - "9090:9090"
         hostname: prometheus
