@@ -1,0 +1,12 @@
+global: # 全局变量
+    scrape_interval: 3s       # 访问目标间隔
+    evaluation_interval: 15s   # 访问规则文件 更新的间隔
+
+rule_files: # 报警规则文件
+
+scrape_configs:
+    - job_name: 'prometheus'
+      static_configs:
+          - targets: ['192.168.56.100:9100']
+      metrics_path: "/metrics" # 默认数据采集路径
+
