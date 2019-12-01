@@ -11,6 +11,7 @@ services:
         restart: always
         volumes:
             - ./prometheus.yml:/etc/prometheus/prometheus.yml
+            - ./data/prometheus:/prometheus
             - ./nginx.yml:/etc/prometheus/nginx.yml
         ports:
             - "9090:9090"
@@ -24,6 +25,8 @@ services:
         restart: always
         ports:
             - "3000:3000"
+        volumes:
+            - ./data/grafana:/var/lib/grafana
         networks:
             - monitor
 
