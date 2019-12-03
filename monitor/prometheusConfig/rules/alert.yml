@@ -1,0 +1,11 @@
+groups:
+    - name: example
+      rules:
+          - alert: test
+            expr: nginx_2xx > 3000
+            for: 10s
+            labels:
+                serverity: page
+            annotations:
+                summary: "gogogo"
+                description: "emmmmm"
