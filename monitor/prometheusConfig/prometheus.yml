@@ -3,6 +3,14 @@ global: # 全局变量
     evaluation_interval: 15s   # 访问规则文件 更新的间隔
 
 rule_files: # 报警规则文件
+    - 'rules/*.yml'
+
+alerting:
+    alertmanagers:
+        - scheme: http
+          static_configs:
+              - targets:
+                  - '192.168.56.100:9093'
 
 scrape_configs:
     - job_name: 'nginx_demo'

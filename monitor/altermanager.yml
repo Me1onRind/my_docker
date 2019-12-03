@@ -1,0 +1,9 @@
+global:
+    resolve_timeout: 1m
+
+route:
+    receiver: 'default-receiver'
+    repeat_interval: 1m
+
+receivers:
+    - name: 'default-receiver'

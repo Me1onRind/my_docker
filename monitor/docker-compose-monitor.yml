@@ -10,9 +10,8 @@ services:
         container_name: prometheus
         restart: always
         volumes:
-            - ./prometheus.yml:/etc/prometheus/prometheus.yml
+            - ./prometheusConfig:/etc/prometheus
             - ./data/prometheus:/prometheus
-            - ./nginx.yml:/etc/prometheus/nginx.yml
         ports:
             - "9090:9090"
         hostname: prometheus
@@ -24,6 +23,19 @@ services:
             - "--web.console.libraries=/usr/share/prometheus/console_libraries"
             - "--web.console.templates=/usr/share/prometheus/consoles"
             - "--storage.tsdb.retention.time=3d"
+
+    alertmanager:
+        image: prom/alertmanager
+        container_name: alertmanager
+        hostname: alertmanager
+        restart: always
+        ports:
+            - '9093:9093'
+        volumes:
+            - ./data/alermanager:/alermanager/data
+            - ./altermanager.yml:/altermanager.yml
+        command:
+            - "--config.file=/altermanager.yml"
 
     grafana:
         image: grafana/grafana
