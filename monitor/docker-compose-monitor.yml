@@ -10,7 +10,7 @@ services:
         container_name: prometheus
         restart: always
         volumes:
-            - ./prometheusConfig:/etc/prometheus
+            - ./prometheus_config:/etc/prometheus
             - ./data/prometheus:/prometheus
         ports:
             - "9090:9090"
@@ -33,10 +33,12 @@ services:
         ports:
             - '9093:9093'
         volumes:
-            - ./data/alermanager:/alermanager/data
-            - ./altermanager.yml:/altermanager.yml
+            - ./data/alertmanager:/alertmanager/data
+            - ./alertmanager.yml:/alertmanager.yml
         command:
-            - "--config.file=/altermanager.yml"
+            - "--config.file=/alertmanager.yml"
+        networks:
+            - monitor
 
     grafana:
         image: grafana/grafana

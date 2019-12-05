@@ -1,6 +1,6 @@
 global: # 全局变量
-    scrape_interval: 3s       # 访问目标间隔
-    evaluation_interval: 15s   # 访问规则文件 更新的间隔
+    scrape_interval: 1m       # 访问目标间隔 可以在job单独配置
+    evaluation_interval: 30s  # 访问规则文件的时间间隔
 
 rule_files: # 报警规则文件
     - 'rules/*.yml'
@@ -10,7 +10,7 @@ alerting:
         - scheme: http
           static_configs:
               - targets:
-                  - '192.168.56.100:9093'
+                  - 'alertmanager:9093'
 
 scrape_configs:
     - job_name: 'nginx_demo'

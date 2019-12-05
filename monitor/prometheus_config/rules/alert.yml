@@ -1,0 +1,11 @@
+groups:
+    - name: example
+      rules:
+          - alert: test
+            expr: nginx_5xx > 3000
+            for: 10s
+            labels:
+                serverity: warning
+            annotations:
+                summary: "5xx is too much"
+                description: "instance: {{ $labels.instance }} number:{{ $value }}"

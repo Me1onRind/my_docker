@@ -1,0 +1,16 @@
+global:
+    resolve_timeout: 1m
+    # smtp_smarthost:
+    # smtp_from
+    # smtp_auth_username:
+    # smtp_auth_password:
+    # smtp_require_tls:
+
+route:
+    receiver: 'default-receiver'
+    repeat_interval: 1m
+
+receivers:
+    - name: 'default-receiver'
+      email_config:
+          to:
