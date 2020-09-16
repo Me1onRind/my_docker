@@ -14,12 +14,13 @@ alerting:
 
 scrape_configs:
     - job_name: 'nginx_demo'
-      #static_configs:  # 静态配置
-          #- targets: ['192.168.56.100:9100']
+      scrape_interval: 10s
+      static_configs:  # 静态配置
+          - targets: ['192.168.56.100:9100']
 
-      file_sd_configs:  # 动态配置
-        - files:
-          - /etc/prometheus/nginx.yml
-          refresh_interval: 1m
+      #file_sd_configs:  # 动态配置
+        #- files:
+          #- /etc/prometheus/nginx.yml
+          #refresh_interval: 1m
       metrics_path: "/metrics" # 默认数据采集路径
 

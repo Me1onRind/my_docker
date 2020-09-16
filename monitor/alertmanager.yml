@@ -1,10 +1,10 @@
 global:
     resolve_timeout: 1m
-    # smtp_smarthost:
-    # smtp_from
-    # smtp_auth_username:
-    # smtp_auth_password:
-    # smtp_require_tls:
+    smtp_from: example@demo.com
+    smtp_smarthost: smtp.example.org:587
+    smtp_auth_username: example@demo.com
+    smtp_auth_password: password
+    smtp_require_tls: false   # 协议是否使用tls 需要注意默认是 true
 
 route:
     receiver: 'default-receiver'
@@ -12,5 +12,5 @@ route:
 
 receivers:
     - name: 'default-receiver'
-      email_config:
-          to:
+      email_configs:
+          - to: demo@qq.com
