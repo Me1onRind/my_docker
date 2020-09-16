@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  athens:
+    image: gomods/athens:latest
+    container_name: athens
+    restart: always
+    ports:
+      - "3000:3000"
+    hostname: athens
