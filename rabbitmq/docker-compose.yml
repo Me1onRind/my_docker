@@ -1,0 +1,16 @@
+version: '3'
+services:
+  rabbitmq:
+    hostname: rabbitmq
+    container_name: rabbitmq
+    image: rabbitmq:management
+    environment:
+      RABBITMQ_DEFAULT_VHOST: vhost
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin123
+    volumes:
+      - ./data:/var/lib/rabbitmq
+      - ./log:/var/log/rabbitmq/log
+    ports:
+      - 15672:15672
+      - 5672:5672
