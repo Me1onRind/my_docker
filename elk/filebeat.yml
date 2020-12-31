@@ -1,0 +1,11 @@
+filebeat.inputs:
+  -
+    types: log
+    paths:
+      - /workspace/log/*.log
+    tail_files: true
+    scan_frequency: 2s
+
+
+#output.console:
+    #pretty: true

@@ -1,0 +1,3 @@
+elasticsearch:
+    hosts:
+        - "http://es1:9200"
