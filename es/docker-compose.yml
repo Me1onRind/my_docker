@@ -1,8 +1,7 @@
 version: '3'
 
 networks:
-    elastic:
-        driver: bridge
+    my-docker-net:
 
 services:
     es1:
@@ -23,7 +22,7 @@ services:
         ports:
             - 9200:9200
         networks:
-            - elastic
+            - my-docker-net
     es2:
         image: docker.elastic.co/elasticsearch/elasticsearch:6.8.6
         container_name: es2
@@ -38,7 +37,7 @@ services:
                 hard: -1
         hostname: es2
         networks:
-            - elastic
+            - my-docker-net
     es3:
         image: docker.elastic.co/elasticsearch/elasticsearch:6.8.6
         container_name: es3
@@ -53,5 +52,5 @@ services:
                 hard: -1
         hostname: es3
         networks:
-            - elastic
+            - my-docker-net
 
